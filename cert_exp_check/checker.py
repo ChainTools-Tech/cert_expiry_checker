@@ -6,10 +6,10 @@ from prettytable import PrettyTable
 
 
 def get_cert_details(hostname, port=443):
-    """Connects to host and pulls certification details, if available.
+    """Connects to host and pulls certificate details, if available.
 
-    :param hostname:
-    :param port:
+    :param hostname: IP address or hostname of target system
+    :param port: indicates on which port host should respond
 
     :return: certificate details for specific hostname
     """
