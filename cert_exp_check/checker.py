@@ -25,6 +25,7 @@ def get_cert_details(hostname, port=443):
 
 def calculate_cert_expiration_days(cert_info):
     """Calculate number of days till certificate expiration
+    Time is calculated using UTC timezone.
 
     :param cert_info: certificate details provided by get_cert_details function
 
