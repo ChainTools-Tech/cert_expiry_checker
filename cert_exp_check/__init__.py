@@ -1,3 +1,3 @@
-"""Top-level package cert_exp_check."""
+"""Top-level package src."""
 
 __version__ = "0.1.0"
