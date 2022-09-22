@@ -2,6 +2,7 @@ import datetime
 import socket
 import ssl
 
+from colorama import Fore, Style
 from prettytable import PrettyTable
 
 
@@ -42,14 +43,19 @@ def check_certificates(urls, source_file, log_level):
     cert_no = 1
     cert_errors = ''
     for host_url in urls:
-        check_hostname, check_port = host_url.split(':')
-        cert_details = get_cert_details(check_hostname, check_port)
+        try:
+            check_hostname, check_port = host_url.split(':')
+            cert_details = get_cert_details(check_hostname, check_port)
+        except ValueError:
+            check_hostname = host_url
+            check_port = ''
+            cert_details = f"Connection error. Incorrect host entry."
 
         if str(cert_details).startswith('Connection error') == True:
             cert_table.add_row([str(cert_no) + '.',
                                 check_hostname,
                                 check_port,
-                                'Unable to connect.',
+                                Fore.RED + 'Unable to connect.' + Style.RESET_ALL,
                                 'NA'])
             cert_errors += f'{check_hostname}: {cert_details}\n' if log_level == 'verbose' else ''
         else:
