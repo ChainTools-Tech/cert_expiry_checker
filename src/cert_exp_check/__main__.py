@@ -1,7 +1,7 @@
 import sys
 
-from cert_exp_check.checker import check_certificates
-from cert_exp_check.cli import process_command_line
+from src.cert_exp_check.checker import check_certificates
+from src.cert_exp_check.cli import process_command_line
 
 
 def main():
