@@ -1,2 +1,4 @@
 github.com:443
-dupa
+nonexistingserver:443
+incorrectentry
+chaintools.tech:443
