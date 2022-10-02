@@ -1,58 +1,77 @@
 # Certificates Expiration Checker
 
+Certificates Expiration Checker checks number of days till certificate expires. 
+It takes file with list of websites as input parameter and checks certificates assigned to those websites.
+In case of any issues error is reported accordingly.
+
 ## Requirements
-
-## Installation
-
-## Configuration
-
-## Usage
-
-## Release History
-
-## Meta
-
-
-
-
-# Build a Site Connectivity Checker in Python
-
-RP Checker is a site connectivity checker utility. It takes one or more website URLs and checks if those sites are online. It can perform the connectivity checks either synchronously or asynchronously.
+ - Python 3.8 or newer
 
 ## Installation
 
 1. Create a Python virtual environment
-
-```sh
+```bash
 $ python -m venv ./venv
 $ source venv/bin/activate
 (venv) $
 ```
 
 2. Install the requirements
-
-```
+```bash
 (venv) $ python -m pip install -r requirements.txt
 ```
 
-## Run the Project
-
-```sh
-(venv) $ python -m rpchecker -u python.org
-The status of "python.org" is: "Online!" 👍
+3. Install script
+```bash
+(venv) $ pip install -e .
 ```
 
-## Features
+## Usage
+
+```bash
+(venv) $ python -m cert_exp_check --f urls.txt -l verbose
++------------------------------------------------------------------------+
+|                 Cert Checker --> Source file: urls.txt                 |
++-----+-------------------+------+--------------------------+------------+
+| No. |      Hostname     | Port |     Expiration date      | Expires in |
++-----+-------------------+------+--------------------------+------------+
+|  1. |     github.com    | 443  | Mar 15 23:59:59 2023 GMT |  164 days  |
+|  2. | nonexistingserver | 443  |    Unable to connect.    |     NA     |
+|  3. |   incorrectentry  |      |    Unable to connect.    |     NA     |
+|  4. |  chaintools.tech  | 443  | Dec  4 09:51:51 2022 GMT |  62 days   |
++-----+-------------------+------+--------------------------+------------+
+===
+Errors during check
+-
+nonexistingserver: Connection error [Errno 11001] getaddrinfo failed
+incorrectentry: Connection error. Incorrect host entry.
+(venv) $
+```
+
+### Content of urls.txt
+```bash
+github.com:443                                                                                                                                                                                                                                                                                                         
+nonexistingserver:443
+incorrectentry
+chaintools.tech:443
+```
+
+## Options
 
 RP Checker provides the following options:
 
-- `-u` or `--urls` takes one or more URLs and checks if they're online.
-- `-f` or `--input-file` takes a file containing a list of URLs to check.
-- `-a` or `--asynchronous` runs the check asynchronously.
+- `-f` or `--file` specifies file with list of URLs.
+- `-l` or `--log` defines level of error reporting.
+
+
+## Uninstall
+```bash
+(venv) $ pip uninstall cert_exp_check
+```
 
 ## About the Author
 
-Leodanis Pozo Ramos - Email: leodanis@realpython.com
+Email: support@qf3l3k.tech
 
 ## License
 
