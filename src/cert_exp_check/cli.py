@@ -8,7 +8,7 @@ def process_command_line():
     """
     cmdparser = argparse.ArgumentParser(prog='cert_check',
                                         usage='%(prog)s [options] path',
-                                        description='Checks status of certificates on specified hosts.')
+                                        description='Checks when certificate for specified hosts expires.')
     cmdparser.version = "0.1"
 
     cmdparser.add_argument("-f", "--file",
