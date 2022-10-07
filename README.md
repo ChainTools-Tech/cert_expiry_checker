@@ -9,8 +9,10 @@ In case of any issues error is reported accordingly.
 
 ## Installation
 
-1. Create a Python virtual environment
+1. Clone repository and create a Python virtual environment
 ```bash
+$ git clone https://github.com/qf3l3k/cert_expiry_checker
+$ cd cert_expiry_checker
 $ python -m venv ./venv
 $ source venv/bin/activate
 (venv) $
