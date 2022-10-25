@@ -73,7 +73,7 @@ RP Checker provides the following options:
 
 ## About the Author
 
-Email: support@qf3l3k.tech
+Email: support@chaintools.tech
 
 ## License
 
