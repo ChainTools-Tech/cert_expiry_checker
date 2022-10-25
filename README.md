@@ -30,7 +30,7 @@ $ source venv/bin/activate
 
 ## Usage
 
-```bash
+```
 (venv) $ python -m cert_exp_check --f urls.txt -l verbose
 +------------------------------------------------------------------------+
 |                 Cert Checker --> Source file: urls.txt                 |
