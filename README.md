@@ -11,7 +11,7 @@ In case of any issues error is reported accordingly.
 
 1. Clone repository and create a Python virtual environment
 ```bash
-$ git clone https://github.com/qf3l3k/cert_expiry_checker
+$ git clone https://github.com/ChainTools-Tech/cert_expiry_checker
 $ cd cert_expiry_checker
 $ python -m venv ./venv
 $ source venv/bin/activate
