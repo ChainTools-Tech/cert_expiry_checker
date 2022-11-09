@@ -13,14 +13,14 @@ In case of any issues error is reported accordingly.
 ```bash
 $ git clone https://github.com/ChainTools-Tech/cert_expiry_checker
 $ cd cert_expiry_checker
-$ python -m venv ./venv
+$ python3 -m venv ./venv
 $ source venv/bin/activate
 (venv) $
 ```
 
 2. Install the requirements
 ```bash
-(venv) $ python -m pip install -r requirements.txt
+(venv) $ python3 -m pip install -r requirements.txt
 ```
 
 3. Install script
