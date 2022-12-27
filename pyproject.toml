@@ -29,7 +29,7 @@ dependencies = [
 requires-python = ">=3.9"
 
 [project.urls]
-Homepage = "https://github.com/chaintools/cert_exp_check"
+Homepage = "https://github.com/ChainTools-Tech/cert_expiry_checker"
 
 [project.scripts]
 cert_exp_check = "cert_exp_check.__main__:main"
