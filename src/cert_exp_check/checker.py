@@ -1,10 +1,13 @@
 import datetime
+import logging
 import socket
 import ssl
 
 from colorama import Fore, Style
 from prettytable import PrettyTable
 
+
+logger = logging.getLogger("cert_exp_check")
 
 def get_cert_details(hostname, port=443):
     """Connects to host and pulls certificate details, if available.
@@ -37,6 +40,21 @@ def calculate_cert_expiration_days(cert_info):
 
 
 def check_certificates(urls, source_file, log_level):
+    """Checks SSL certificate expiration dates for a list of URLs.
+
+    For each URL in the provided list, the function attempts to connect and retrieve the SSL certificate details.
+    If successful, it calculates the number of days until expiration. If not, it logs an error and notes the issue.
+    Results are returned as a PrettyTable with certificate details and a string of errors if any occurred.
+
+    :param urls: List of URLs (with optional ports) to check, e.g., 'example.com:443' or 'example.com'
+    :param source_file: Name of the file from which the URLs were sourced (used in the table title)
+    :param log_level: Logging level, either 'info' or 'verbose' (verbose includes detailed error messages)
+
+    :return: Tuple containing:
+             - cert_table (PrettyTable): Table with certificate information (No., Hostname, Port, Expiration date, Expires in)
+             - cert_errors (str): Concatenated error messages if any occurred, empty if none
+    """
+    logger.info(f"Checking certificates for URLs from {source_file}...")
     cert_table = PrettyTable()
     cert_table.title = f'Cert Checker --> Source file: {source_file}'
     cert_table.field_names = ['No.', 'Hostname', 'Port', 'Expiration date', 'Expires in']
@@ -52,6 +70,7 @@ def check_certificates(urls, source_file, log_level):
             cert_details = f"Connection error. Incorrect host entry."
 
         if str(cert_details).startswith('Connection error') == True:
+            logger.error(f"Connection error for {check_hostname}")
             cert_table.add_row([str(cert_no) + '.',
                                 check_hostname,
                                 check_port,
