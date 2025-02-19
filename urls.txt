@@ -2,3 +2,5 @@ github.com:443
 nonexistingserver:443
 incorrectentry
 chaintools.tech:443
+explorer.chaintools.tech:443
+testnet.explorer.chaintools.tech:443

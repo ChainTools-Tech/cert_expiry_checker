@@ -1,0 +1,8 @@
+exporter:
+  port: 8000
+urls:
+  - url: github.com:443
+  - url: nonexistingserver:443
+  - url: chaintools.tech:443
+  - url: explorer.chaintools.tech:443
+  - url: testnet.explorer.chaintools.tech:443
